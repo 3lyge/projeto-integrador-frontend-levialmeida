@@ -1,0 +1,17 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+body {
+  background-color: #f4f4f9;
+}
+ul{
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.logo{
+    width: 150px;
+    height: 150px;
+    padding-left: 12px;
+    margin-left: 12px;
+}

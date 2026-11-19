@@ -4,12 +4,17 @@
   --fonteTitulo: "Space Grotesk", sans-serif;
   --fonteTexto: "Inter", system-ui, sans-serif;
   --preto: #0c0c0c;
-  --cinza: #CCCCCC;
+  --cinza: #6b6b6b;
   --branco: #f5f5f5;
 }
 
 *, *::before, *::after {
   box-sizing: border-box;
+}
+.barraCinza{
+  border: none;
+  border-top: 2px solid var(--cinza);
+  margin: 0px 100px 0px 100px;
 }
 
 h1, h2, h3{
@@ -128,7 +133,7 @@ main .pa1{
 .code {
   display: flex;
   align-items: center;
-  gap: 3px;
+  margin: 10px 10px 10px 10px;
   color: var(--branco);
 }
 main{
@@ -151,4 +156,52 @@ footer a{
 }
 footer a:hover{
   color: var(--cinza);
+}
+.container{
+  display: flex;
+  justify-content: flex-start;
+  gap: 20px;
+}
+.card{
+  display: flex;
+  flex-direction: column;
+  border: 2px solid var(--cinza);
+  align-items: center;
+  border-radius: 5%;
+  padding: 10px;
+  height: 600px;
+  width: 900px;
+  border-radius: 30px;
+overflow: cover;
+}
+.card h2{
+  margin: 15px 10px 0px 10px;
+}
+.desc{
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+  text-align: center;
+  color: var(--cinza);
+  font-family: var(--fonteTexto);
+}
+.logos{
+  object-fit: cover;
+  margin: 0px 20px 20px 20px;
+  padding: 20px;
+  width: 100%;
+  height: 400px;
+  border: 1px solid var(--preto);
+  border-radius: 30px !important;
+}
+
+img {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+  border: 1px solid var(--preto);
+  border-radius: 30px !important;
+}
+
+img:hover {
+  filter: grayscale(0%);
 }

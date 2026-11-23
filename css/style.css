@@ -5,6 +5,7 @@
   --fonteTexto: "Inter", system-ui, sans-serif;
   --preto: #0c0c0c;
   --cinza: #6b6b6b;
+  --cinza-claro: #a8a8a8;
   --branco: #f5f5f5;
 }
 
@@ -120,7 +121,7 @@ ul{
 }
 
 .botao:focus-visible {
-  outline: 3px solid var(--preto);
+  outline: 3px solid var(--branco);
   outline-offset: 3px;
 }
 main .pa1{
@@ -160,6 +161,7 @@ footer a:hover{
 .container{
   display: flex;
   justify-content: flex-start;
+  align-items: flex-start;
   gap: 20px;
 }
 .card{
@@ -169,7 +171,7 @@ footer a:hover{
   align-items: center;
   border-radius: 5%;
   padding: 10px;
-  height: 600px;
+  height: auto;
   width: 900px;
   border-radius: 30px;
 overflow: cover;
@@ -204,4 +206,179 @@ img {
 
 img:hover {
   filter: grayscale(0%);
+}
+
+/* Texto oculto dos cards: aparece (e o card cresce junto) quando o mouse passa sobre a logo.
+   O truque do grid: a linha vai de 0fr para 1fr, e o navegador anima a altura sozinho. */
+.detalhe {
+  display: grid;
+  grid-template-rows: 0fr;
+  width: 100%;
+  opacity: 0;
+  transition: grid-template-rows 0.4s ease, opacity 0.3s ease;
+}
+
+.detalhe-conteudo {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.detalhe-conteudo p {
+  margin: 0;
+  padding: 0 20px 20px;
+  text-align: center;
+  line-height: 1.6;
+  color: var(--cinza-claro);
+}
+
+.logos:hover + .detalhe,
+.card:focus-visible .detalhe {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+
+.card:focus-visible {
+  outline: 3px solid var(--branco);
+  outline-offset: 4px;
+}
+
+/* Formulário de contato */
+.form-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 40rem;
+  margin: 10px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.campo label {
+  font-family: var(--fonteTexto);
+  font-weight: 500;
+  color: var(--branco);
+}
+
+.campo input,
+.campo textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-family: var(--fonteTexto);
+  font-size: 1rem;
+  color: var(--branco);
+  background-color: #161616;
+  border: 2px solid var(--cinza);
+  border-radius: 0;
+}
+
+.campo textarea {
+  min-height: 9rem;
+  resize: vertical;
+}
+
+.campo input::placeholder,
+.campo textarea::placeholder {
+  color: var(--cinza-claro);
+  opacity: 1;
+}
+
+.campo input:focus-visible,
+.campo textarea:focus-visible {
+  border-color: var(--branco);
+  outline: 3px solid var(--branco);
+  outline-offset: 2px;
+}
+
+.campo input:user-invalid,
+.campo textarea:user-invalid {
+  border-style: dashed;
+  border-color: var(--branco);
+}
+
+.ajuda {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--cinza-claro);
+}
+
+.contador-limite {
+  font-weight: 600;
+  color: var(--branco);
+}
+
+.armadilha {
+  display: none;
+}
+
+.form-contato .botao {
+  align-self: flex-start;
+  font-family: var(--fonteTexto);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.form-contato .botao:hover {
+  border-color: var(--branco);
+}
+
+.form-contato .botao[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.status-form {
+  margin: 0;
+  color: var(--branco);
+}
+
+.status-form:empty {
+  display: none;
+}
+
+.status-form[data-estado="enviando"] {
+  color: var(--cinza-claro);
+}
+
+.status-form[data-estado="sucesso"] {
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--branco);
+}
+
+.status-form[data-estado="erro"] {
+  padding: 0.75rem 1rem;
+  border: 2px dashed var(--branco);
+}
+
+/* Celular: cards um embaixo do outro (4 colunas não cabem) */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .card {
+    width: 100%;
+  }
+}
+
+/* Sem mouse (celular/tablet) não existe hover: o texto dos cards fica sempre visível */
+@media (hover: none) {
+  .detalhe {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detalhe {
+    transition: none;
+  }
+}
+
+.direitos {
+  font-size: 0.875rem;
+  color: var(--cinza-claro);
 }

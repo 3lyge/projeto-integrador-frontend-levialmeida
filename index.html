@@ -15,6 +15,7 @@
             3Lyge - Levi Almeida
         </h1>
 </div>
+<hr>
     </header>
     <main>
         <p class="pa1">$ whoami</p>
@@ -24,56 +25,116 @@
   <rect x="0" y="30" width="25" height="40" fill="#6b6b6b" />
 </svg>
         </h1>
-        <p class="code">Desenvolvedor em formação. Aqui estão todos os projetos que construo.</p>
+        <p class="code">Desenvolvedor em formação. Aqui estão todos os projetos que construo.
+        <br>Mas quem sou eu? Eu sou um contador/economista em processo de migração de carreira, atuei ativamente com contabilidade fiscal na empresa São Braz SA, representando 7 CNPJs em diferentes estados, sendo 1 indústria, a matriz do grupo e outras 5 filiais de comércio. Em meio ao processo tive contato com algumas linguagens de marcação XML tanto em notas fiscais quanto em Escriturações Fiscais Digitais, desenvolvi muito interesse na parte de trás de tudo oque se passa por trás do monitor e decidi mergulhar de cabeça na área, ainda atuando como contador, tive contato próximo com o setor de TI do grupo e ajudei ativamente na implantação das mudanças do primeiro ano da reforma tributária, participando de testes de qualidade das atualizações do sistema além de frequentes reuniões com os setores responsáveis. Hoje sou apenas um estudante buscando uma primeira oportunidade na área de TI.
+        </p>
     <div class="acoes">
         <a class="botao botao-projetos" href="#projetos">> Ver_projetos</a>
         <a class="botao botao-github" href="https://github.com/3lyge" target="_blank" rel="noopener noreferrer">GitHub ⬈</a>
-        <a class="botao botao-sobre" href="#sobre">Sobre</a>
+
     </div>
     <br><br><hr class="barraCinza"><br>
         <section id="projetos" class="projetos">
             <p class="pa1">$ ls projetos/</p>
             <h1 class="code">Projetos desenvolvidos</h1>
         <div class="container">
-            <div class="card">
+            <div class="card" tabindex="0">
                 <h2 class="code">Cozinha Ramos</h2>
                 <p class="desc">Landing Page</p>
                 <img src="assets/images/cozinhaLogo.png" alt="logo Cozinha Ramos" class="logos">
+                <div class="detalhe">
+                    <div class="detalhe-conteudo">
+                        <p>Meu primeiro projeto, uma landing page voltada para a apresentação da marca. Recebe o contato dos clientes que desejam realizar os pedidos juntamente com valores de cada pedido já com frete.</p>
+                    </div>
+                </div>
 
             </div>
-            <div class="card">
+            <div class="card" tabindex="0">
                 <h2 class="code">
                     Financell
                 </h2>
                 <p class="desc">Software de controle financeiro</p>
                 <img src="assets/images/FinancellLogo.png" alt="logo Financell" class="logos">
+                <div class="detalhe">
+                    <div class="detalhe-conteudo">
+                        <p>Um projeto de estudo, feito para testar meus conhecimentos em pyhton, suas bibliotecas(TTK e Tkinter) SQLite. Trata-se de um controle financeiro pessoal, uma planilha com gráficos.</p>
+                    </div>
+                </div>
             </div>
-            <div class="card">
+            <div class="card" tabindex="0">
                 <h2 class="code">
                     Sinistrol
                 </h2>
-                <p class="desc">SLA/Kanban</p>
+                <p class="desc">CRM/Kanban</p>
                 <img src="assets/images/sinistrolLogo.png" alt="logo Sinistrol" class="logos">
+                <div class="detalhe">
+                    <div class="detalhe-conteudo">
+                        <p>Sistema de controle de sinistros com CRM e quadro Kanban. Um sistema que visa controlar os prazos as manutençÕes e atendimentos de sinistros em corretoras de seguros, é um ponto fraco da quase totalidade das seguradoras. Em desenvolvimento.</p>
+                    </div>
+                </div>
             </div>
-                    <div class="card">
+                    <div class="card" tabindex="0">
                 <h2 class="code">
                     CleanApp
                 </h2>
                 <p class="desc">Aplicativo mobile</p>
                 <img src="assets/images/CleanApp.jpg" alt="logo CleanApp" class="logos">
+                <div class="detalhe">
+                    <div class="detalhe-conteudo">
+                        <p>Projeto apenas idealizado, sem ter tido início prátido. Trata-se de um Marketplace mobile que lea profissionais de limpeza com empresas ou empregadores que necessitam desses serviços. Foi desenvolvido na cadeira de "Gestão de processo de Inovação" durante minha graduação de contabilidade, obtendo nota máxima. Infelizmente devido à complexidade do produto não pude iniciá-lo ainda.</p>
+                    </div>
+                </div>
             </div>
         </div>
+        </section>
+        <br><hr class="barraCinza"><br>
+        <section id="contato" class="contato">
+            <p class="pa1">$ contato --abrir</p>
+            <h1 class="code">Entre em contato</h1>
+
+
+
+            <!-- O envio é feito pelo FormSubmit (formsubmit.co): sem servidor próprio.
+                 No primeiro envio ele manda um e-mail de ativação para o endereço do action. -->
+
+
+                 
+            <form id="form-contato" class="form-contato" action="https://formsubmit.co/levi.dev.almeida@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Novo contato pelo portfólio">
+                <input type="hidden" name="_template" value="table">
+                <input type="text" name="_honey" class="armadilha" tabindex="-1" autocomplete="off">
+
+                <div class="campo">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" required maxlength="100" autocomplete="name" placeholder="Seu nome">
+                </div>
+
+                <div class="campo">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" required maxlength="254" autocomplete="email" placeholder="voce@exemplo.com">
+                </div>
+
+                <div class="campo">
+                    <label for="descricao">Descrição</label>
+                    <textarea id="descricao" name="descricao" required maxlength="1000" rows="6" aria-describedby="ajuda-descricao" placeholder="Conte sobre o projeto, a vaga ou a dúvida"></textarea>
+                    <p class="ajuda" id="ajuda-descricao">Até 1000 caracteres. <span id="contador">0 / 1000</span></p>
+                </div>
+
+                <button type="submit" class="botao botao-projetos">Enviar mensagem</button>
+                <p class="status-form" id="status-form" role="status" aria-live="polite"></p>
+            </form>
         </section>
     </main>
 </div>
 <footer>
     <br><hr class="barraCinza">
     <div id="contatos">
-    <h2 class="code">Contatos</h2>
         <a href="https://wa.me/5583986223672">WhatsApp<br></a>
         <a href="https://github.com/3lyge">GitHub</a>
         
     <br><br><hr></div>
+    <p class="direitos">&copy; 2026 Levi Almeida. Todos os direitos reservados.</p>
 </footer>
+<script src="js/script.js" defer></script>
 </body>
 </html>

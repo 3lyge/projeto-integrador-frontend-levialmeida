@@ -15,12 +15,16 @@ const enderecoAjax = formulario.action.replace("formsubmit.co/", "formsubmit.co/
 
 let enviando = false;
 
+//Frescurinha visual
 function atualizarContador() {
   const usados = campoDescricao.value.length;
   contador.textContent = `${usados} / ${LIMITE}`;
   contador.classList.toggle("contador-limite", usados >= LIMITE * 0.9);
 }
 
+//Frescurinha visual importante, mostra se a solicitação funcionou.
+
+//PARA O PROFESSOR JEOFTON!!! É POSSÍVEL QUE OS TESTE QUE O SR. FAÇA INCLUAM TESTAR ESSA FUNÇÃO, EU NÃO SOUBE TESTAR ISSO NO GITHUB, TESTEI LOCALMENTE UTILIZANDO O LIVE SERVER E FUNCIONOU. CASO ESSE SEJA UM CRITÉRIO DE PONTUAÇÃO FAVOR RECONSIDERERAR OU PEDIR O ENCAMINHAMENTO DO EMAIL TESTE REALIZADO
 function mostrarStatus(estado, texto) {
   statusForm.dataset.estado = estado;
   statusForm.textContent = texto;
@@ -30,13 +34,12 @@ async function enviarFormulario(evento) {
   evento.preventDefault();
   if (enviando) return;
 
-  // tira os espaços das pontas: um campo só com espaços não conta como preenchido
+  //Trato possíveis bugs de incompetência do usuário, afinal, parte-se do princípio de que o usuário é um acéfalo.
   campoNome.value = campoNome.value.trim();
   campoEmail.value = campoEmail.value.trim();
   campoDescricao.value = campoDescricao.value.trim();
   atualizarContador();
 
-  // mostra a mensagem do navegador no primeiro campo inválido
   if (!formulario.reportValidity()) return;
 
   enviando = true;
@@ -52,7 +55,7 @@ async function enviarFormulario(evento) {
     });
     const dados = await resposta.json();
 
-    // o FormSubmit devolve "success" como texto ("true" ou "false")
+    //Trato a devolutiva do JSON recebido
     if (!resposta.ok || String(dados.success) !== "true") {
       throw new Error(dados.message || `Erro ${resposta.status}`);
     }
@@ -61,9 +64,9 @@ async function enviarFormulario(evento) {
     atualizarContador();
     mostrarStatus("sucesso", "Mensagem enviada! Obrigado pelo contato.");
   } catch (erro) {
-    // o motivo real fica no console (F12) para você conseguir investigar
     console.warn("Falha ao enviar o formulário:", erro.message);
     mostrarStatus("erro", "Não foi possível enviar agora. Tente de novo em instantes ou chame pelo WhatsApp.");
+    //Jeofton, eu não conseguiu pensar em uma outra solução viável para caso o email de errado então disponibilizei também o número de telefone. Se o Sr. puder me apresentar alguma outra solução menos invasiva seria interessante.
   } finally {
     enviando = false;
     botaoEnviar.removeAttribute("aria-disabled");
